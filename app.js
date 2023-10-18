@@ -1,5 +1,5 @@
 const draggable_list = document.querySelector('.draggable-list')
-
+const check = document.getElementById('check')
 let footballers = [
     'messi',
     'meradona',
@@ -16,7 +16,7 @@ let footballers = [
 
 
 let lists = []
-
+let dragStartIndex;
 
 function createList(){
 
@@ -32,6 +32,7 @@ function createList(){
         <div class="draggable" draggable="true"> <p class="person-name">${player}</p> </div>
 
         `;
+        lists.push(listItem)
 
         draggable_list.appendChild(listItem)
 
@@ -63,23 +64,55 @@ function dragEvents(){
     
 
 }
-function dragStart(){
+    function dragStart(){
+    console.log('start')
+    dragStartIndex = +this.closest('li').getAttribute('data-index')
 
-}
-function dragEnd(){
+    }
+    function dragEnd(){
+    console.log('end')
+    }
 
-}
+    function dragOver(e){
+        e.preventDefault();
+        console.log('over')
 
-function dragOver(){
-    console.log('over')
+    }
+    function dragEnter(){
+        this.classList.add('enter')
 
-}
-function dragEnter(){
+    }
+    function dragLeave(){
+        this.classList.remove('leave')
 
-}
-function dragLeave(){
+    }
+    function dragDrop(){
 
-}
-function dragDrop(){
+    let dragEndIndex = +this.getAttribute('data-index');
+        swapIt(dragStartIndex,dragEndIndex)
+    } 
 
-}
+    function swapIt(toIndex,fromIndex){
+
+        const y = lists[toIndex].querySelector('.draggable')
+        const x = lists[fromIndex].querySelector('.draggable')
+        lists[toIndex].appendChild(x)
+        lists[fromIndex].appendChild(y)
+
+    }
+
+    check.addEventListener('click',()=>{
+
+        lists.forEach((item,index)=>{
+
+            let playerName = item.querySelector('.draggable').innerText.trim()
+
+            if(playerName !== footballers[index]){
+                item.classList.add('wrong')
+            }else{
+                item.classList.remove('wrong')
+                item.classList.add('right')
+
+            }
+        })
+    })

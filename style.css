@@ -64,9 +64,7 @@ ul{
     background-color: lightgray;
 }
 
-.wrong
-{
-}
+
 .draggable-list li.wrong .person-name{
     color: red;
 }
@@ -75,4 +73,7 @@ ul{
 }
 .draggable-list li.over .draggable{
     background-color: #686060;
+}
+.over{
+    background-color: #222;
 }
