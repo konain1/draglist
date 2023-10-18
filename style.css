@@ -1,0 +1,78 @@
+
+
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #222;
+
+}
+ul{
+    list-style: none;
+    width: 30%;
+    background-color: rgb(131, 131, 97);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid white;
+}
+.listItem{
+    text-align: center;
+    font-size: 22px;
+    border: 1px solid rgb(255, 236, 236);
+    margin-top: 5px;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+
+
+.num {
+    width: 40px;
+    height: 40px;
+    border: 1px solid grey;
+    background-color: darkgrey;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.person-name{
+    text-align: center;
+
+}
+.draggable{
+    padding: 2px;
+    cursor: move;
+    border: 1px dashed grey;
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgb(182, 163, 163);
+    
+}
+.draggable:hover{
+    background-color: lightgray;
+}
+
+.wrong
+{
+}
+.draggable-list li.wrong .person-name{
+    color: red;
+}
+.draggable-list .listItem.right .person-name{
+    color: green;
+}
+.draggable-list li.over .draggable{
+    background-color: #686060;
+}
